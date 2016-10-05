@@ -1,5 +1,5 @@
 # Alarm na kolo
-
+![Alarm](https://im9.cz/iR/importprodukt-orig/008/0087ddcb215cc74a89fc4a97f06bac7a.jpg)
 
 
 # Proč jsem si vybral tento projekt
@@ -7,4 +7,4 @@ Jelikož se hodně kradou kola a málokterá se najdou a vrátí se majiteli, ta
 
 #Jak bude alarm fungovat?
 
-![alt tag](https://im9.cz/iR/importprodukt-orig/008/0087ddcb215cc74a89fc4a97f06bac7a.jpg)
+
