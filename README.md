@@ -23,7 +23,7 @@ Když budu chtít alarm zapnout, tak buď zadám kód který si zvolím, nebo al
 
 ![klávenice](https://www.robotics.org.za/image/cache/data/Elec_Component/keypads/keypad04_000-500x500.jpg)
 
-5) odpory - jsou potřeba proto, aby se nrspálilo arduino
+5) odpory - jsou potřeba proto, aby se nespálilo arduino
 
 6) klíč - Pro dálkové odemčení/zamčení
 
