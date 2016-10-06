@@ -15,6 +15,8 @@ Když budu chtít alarm zapnout, tak buď zadám kód který si zvolím, nebo al
 
 2) otřesové čidlo - Pomocí tohoto čidla arduino pozná, že se někdo pokouší ukrást kolo
 
+![otřes](https://cdn-shop.adafruit.com/1200x900/1766-00.jpg)
+
 3) nějaký bzučák - Pro zvuk alarmu a vystrašení zloděje
 
 ![bzučák](http://img.dxcdn.com/productimages/sku_138322_2.jpg)
@@ -25,6 +27,8 @@ Když budu chtít alarm zapnout, tak buď zadám kód který si zvolím, nebo al
 
 5) odpory - jsou potřeba proto, aby se nespálilo arduino
           - k tomuto projektu jsou potřeba 2,2k odpory
+          
+![odpory](http://litbimg5.rightinthebox.com/images/384x384/201310/pjkzaa1383016490412.jpg)
 
 6) klíč - Pro dálkové odemčení/zamčení
 
