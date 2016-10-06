@@ -19,11 +19,12 @@ Když budu chtít alarm zapnout, tak buď zadám kód který si zvolím, nebo al
 
 ![bzučák](http://img.dxcdn.com/productimages/sku_138322_2.jpg)
 
-4) tlačítka - pro odemknutí\zamknutí kola
+4) tlačítka - pro odemknutí\zamknutí kola pomocí hesla
 
 ![klávenice](https://www.robotics.org.za/image/cache/data/Elec_Component/keypads/keypad04_000-500x500.jpg)
 
 5) odpory - jsou potřeba proto, aby se nespálilo arduino
+          - k tomuto projektu jsou potřeba 2,2k odpory
 
 6) klíč - Pro dálkové odemčení/zamčení
 
