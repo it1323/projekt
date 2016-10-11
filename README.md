@@ -36,3 +36,4 @@ Když budu chtít alarm zapnout, tak zadám kód který si zvolím. No a když n
 
 #Schéma
 
+![schema](https://cloud.githubusercontent.com/assets/14974344/19272023/43b74350-8fc7-11e6-8970-d8c2436af1d3.jpeg)
