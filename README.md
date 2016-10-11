@@ -6,7 +6,7 @@
 Jelikož se hodně kradou kola a málokterá se najdou a vrátí se majiteli, tak jsem se rozhodl, že na ročníkový projekt udělám alarm pro kola. Jistěže to 100% nezábrání krádeži, ale nadruhou stranu to může některé zloděje odradit a o to jde ne? :)
 
 #Jak bude alarm fungovat?
-Když budu chtít alarm zapnout, tak buď zadám kód který si zvolím, nebo alarm spustím přes dálkový klíč. No a když někdo bude chtít kolo ukrást, tak otřesový senzor pozná, že s kolem někdo hýbe a spustí se alarm (snad to případného zloděje odradí) do té doby, než ho vypnu kódem nebo klíčem.
+Když budu chtít alarm zapnout, tak zadám kód který si zvolím. No a když někdo bude chtít kolo ukrást, tak otřesový senzor pozná, že s kolem někdo hýbe a spustí se alarm (snad to případného zloděje odradí) do té doby, než ho vypnu kódem
 
 #Co budu potřebovat za součástky
 1) arduino nano - Pomocí Arduina můžete vyvíjet interaktivní předměty, získávat vstupy od různých spínačů, senzorů a ovládat například světla, motory,... 
@@ -30,8 +30,9 @@ Když budu chtít alarm zapnout, tak buď zadám kód který si zvolím, nebo al
           
 ![odpory](http://litbimg5.rightinthebox.com/images/384x384/201310/pjkzaa1383016490412.jpg)
 
-6) klíč - Pro dálkové odemčení/zamčení
-
-7) nepajivé pole - Slouží ke složení a vyzkoušení projektu bez pájení a poškození součástek v případě špatného zapojení.
+6) nepajivé pole - Slouží ke složení a vyzkoušení projektu bez pájení a poškození součástek v případě špatného zapojení.
 
 ![pole](http://www.pistek.eu/userfiles/image/breadboard.jpg)
+
+#Schéma
+
