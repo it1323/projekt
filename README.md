@@ -37,3 +37,7 @@ Když budu chtít alarm zapnout, tak zadám kód který si zvolím. No a když n
 #Schéma
 
 ![schema](https://cloud.githubusercontent.com/assets/14974344/19272023/43b74350-8fc7-11e6-8970-d8c2436af1d3.jpeg)
+
+#Jak vyřešit aby arduino nevybilo baterku za den?
+Arduino neustále provádí nějaké procesy a to vybíjí baterku. Timpádem bych musel často vyměňovat baterku za novou, proto jsem to musel vyřešit tím, že arduino zastaví všechny instrukce a pokračovat bude pouze, když bude potřeba(např.: když budu chtít zapnout alarm, nebo když čidlo zaznamená pohyb a bude potřeba spustit alarm).
+Funguje to na principu, že když příjde proud na určitý pin, tak arduino začne provádět určité instrukce a po splnění se zase "vypne".
