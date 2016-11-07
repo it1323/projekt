@@ -52,5 +52,7 @@ Funguje to na principu, že když příjde proud na určitý pin, tak arduino za
 
 #Knihovny
 password.h - slouží k usnadnění práce s heslem
+
 keypad.h - slouží k ovládání klávesnice, umožňuje vícenasobné stisknutí kláves
+
 eeprom.h - slouží k práci s pamětí, umožňuje číst z paměti, nahrávat data do paměti,...
