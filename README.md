@@ -42,3 +42,15 @@ Když budu chtít alarm zapnout, tak zadám kód který si zvolím. No a když n
 Arduino neustále provádí nějaké procesy a to vybíjí baterku. Timpádem bych musel často vyměňovat baterku za novou, proto jsem to musel vyřešit tím, že arduino zastaví všechny instrukce a pokračovat bude pouze, když bude potřeba(např.: když budu chtít zapnout alarm, nebo když čidlo zaznamená pohyb a bude potřeba spustit alarm).
 Funguje to na principu, že když příjde proud na určitý pin, tak arduino začne provádět určité instrukce a po splnění se zase "vypne".
 
+![vystrizek1](https://cloud.githubusercontent.com/assets/14974344/20063522/cc00e78e-a507-11e6-8bd7-90828ec57de8.PNG)
+
+![vystrizek2](https://cloud.githubusercontent.com/assets/14974344/20063524/cc2c889e-a507-11e6-9914-c64310365e00.PNG)
+
+![vystrizek3](https://cloud.githubusercontent.com/assets/14974344/20063523/cc2a26a8-a507-11e6-9a06-4ce2c316afff.PNG)
+
+![vystrizek4](https://cloud.githubusercontent.com/assets/14974344/20063525/cc30ee02-a507-11e6-882e-51101ed31276.PNG)
+
+#Knihovny
+password.h - slouží k usnadnění práce s heslem
+keypad.h - slouží k ovládání klávesnice, umožňuje vícenasobné stisknutí kláves
+eeprom.h - slouží k práci s pamětí, umožňuje číst z paměti, nahrávat data do paměti,...
