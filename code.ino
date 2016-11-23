@@ -11,14 +11,17 @@ String heslo = "";
 String pomocna;
 char pasvord[5];
 int prihlasen;
+int moznost=0;//proměna užitá jako paramert pro změnu hesla
+int normal=1; //
 int klik=0;//pro měná pro počítání kliknutí
 int led=13;//led na pinu 13
+int led2=10;
 
 
 unsigned long currentMillis;
 unsigned long previousMillis = 0;   
 
-const long interval = 3000;
+const long interval = 1500;
 
 
 const byte ROWS = 4; // Four rows
@@ -54,6 +57,7 @@ void setup(){
   prihlasen=0;
   klik=0;
   pinMode(led ,OUTPUT);
+  pinMode(led2, OUTPUT);
   }
 void(*resetFunc)(void)=0;
 
@@ -78,7 +82,7 @@ void keypadEvent(KeypadEvent eKey){
   //Serial.print("Enter:");
  // Serial.println(eKey);
  // delay(10);
-  
+      if(normal==1){
       if(prihlasen==1){
         if(pocet==3){
             password.append(eKey);
@@ -87,12 +91,14 @@ void keypadEvent(KeypadEvent eKey){
             pocet=0;
           }
           else {
-           switch (eKey){              
-               default: Serial.print("Enter:");Serial.println(eKey);password.append(eKey); pocet++; delay(1);
+           switch (eKey){   
+               
+                       
+               default: Serial.print("Enter:");Serial.println(eKey);password.append(eKey); pocet++; delay(100);
                 }
               
           }
-      }else{
+      }else{if(eKey=='3'){
                      currentMillis = millis();
                     if(currentMillis - previousMillis < interval){
                       klik++;
@@ -101,7 +107,34 @@ void keypadEvent(KeypadEvent eKey){
                       Serial.print("Enterlock:");
                       Serial.println(eKey);
                       }else {klik=0; previousMillis = currentMillis;}
+               }
         }
+    }else{
+      if(pocet==3){
+            noveHeslo[pocet]=eKey; 
+            uloz(noveHeslo);
+            pocet=0;
+          }
+          else {
+           switch (eKey){   
+                       
+               default: Serial.print("Enter:");Serial.println(eKey); noveHeslo[pocet]=eKey; pocet++; delay(100);
+                }
+      
+      
+      }}
+        
+        
+
+ case HOLD: if(moznost==1 && eKey=='1'){
+
+     currentMillis = millis();
+  normal=0;
+  moznost=0;
+  Serial.println(eKey);
+  digitalWrite(led2,HIGH);
+  pocet=0;
+  }
      
       }
     
@@ -113,12 +146,12 @@ void checkPassword(){//kontrola hesla
 if (password.evaluate()){  //if password is right open
    Serial.println("deaktivováno");
    prihlasen=0;
-   
+   moznost=1;
    digitalWrite(led,LOW);
    
 }else {
     Serial.println("špatné heslo");
-    
+      moznost=0;
       digitalWrite(led,LOW);
       delay(400);
       digitalWrite(led,HIGH);
@@ -133,10 +166,13 @@ if (password.evaluate()){  //if password is right open
 
 
 
-/*void uloz(char * newh){
+void uloz(char *newh){
+  
   for(int i=0; i<4; i++){
-    EEPROM.write(i, newh[i] - '0');
+    int mezi=newh[i]-'0';
+    EEPROM.write(i, mezi);
     Serial.print(newh[i]);
     }
+    digitalWrite(led2,LOW);
     resetFunc();
-  }*/
+  }
