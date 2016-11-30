@@ -2,7 +2,9 @@
 #include <Password.h>
 #include <Keypad.h>
 #include <EEPROM.h>
-
+#define GREEN 10
+#define BLUE 9
+#define RED 11
 
 
 Password password = Password( "1111" ); 
@@ -15,12 +17,13 @@ int moznost=0;//proměna užitá jako paramert pro změnu hesla
 int normal=1; //
 int klik=0;//pro měná pro počítání kliknutí
 int led=13;//led na pinu 13
-int led2=10;
-
+int led2=12;
+int ledState=LOW;
 
 unsigned long currentMillis;
 unsigned long previousMillis = 0;   
-
+unsigned long previousMil = 0; 
+unsigned long pre = 0; 
 const long interval = 1500;
 
 
@@ -33,6 +36,7 @@ char keys[ROWS][COLS] = {
 int pocet=0;
 int pocetNaNew=0;
 int zmena=0;
+int sensor;
 
 byte rowPins[ROWS] = { 2 };
 byte colPins[COLS] = { 3, 4, 5, 6 };
@@ -58,20 +62,35 @@ void setup(){
   klik=0;
   pinMode(led ,OUTPUT);
   pinMode(led2, OUTPUT);
+  pinMode(GREEN, OUTPUT);
+  pinMode(BLUE, OUTPUT);
+  pinMode(RED, OUTPUT);
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(BLUE, HIGH);
+  digitalWrite(RED, HIGH);
   }
 void(*resetFunc)(void)=0;
 
 void loop(){
-  
+  sensor = analogRead(A0);
+    
  keypad.getKey();
 
   if(klik==1){
     prihlasen=1;
     Serial.println("zamknuto");
     digitalWrite(led, HIGH);
+    delay(3000);
     klik=0;
     
     }
+
+    if(prihlasen==1){
+      if(sensor>1002){
+      digitalWrite(8, HIGH);
+      delay(200);
+      }else digitalWrite(8, LOW);
+     }else digitalWrite(8, LOW);
   }
   
   
@@ -164,6 +183,30 @@ if (password.evaluate()){  //if password is right open
 
 }
 
+
+void blika(){
+  /*unsigned long Millis = millis();
+
+  
+   if (Millis - previousMil <= 10000) {
+    pre= Millis;
+    if (Millis - previousMil >= 500) {
+    // save the last time you blinked the LED
+    previousMil = Millis;
+
+    // if the LED is off turn it on and vice-versa:
+    if (ledState == LOW) {
+      ledState = HIGH;
+    } else {
+      ledState = LOW;
+    }
+
+    // set the LED with the ledState of the variable:
+    digitalWrite(8, ledState);
+  }
+    }*/
+  
+  }
 
 
 void uloz(char *newh){
