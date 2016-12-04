@@ -56,3 +56,7 @@ password.h - slouží k usnadnění práce s heslem
 keypad.h - slouží k ovládání klávesnice, umožňuje vícenasobné stisknutí kláves
 
 eeprom.h - slouží k práci s pamětí, umožňuje číst z paměti, nahrávat data do paměti,...
+
+#Diagram
+![diagram](https://cloud.githubusercontent.com/assets/14974344/20867852/d30eea0c-ba4d-11e6-9593-b1caf8bb7bb8.png)
+
