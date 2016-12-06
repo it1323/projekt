@@ -1,4 +1,3 @@
-
 #include <Password.h>
 #include <Keypad.h>
 #include <EEPROM.h>
@@ -15,7 +14,7 @@ char pasvord[5];
 int prihlasen;
 int moznost=0;//proměna užitá jako paramert pro změnu hesla
 int normal=1; //
-int klik=0;//pro měná pro počítání kliknutí
+int klik=0;//proměná pro počítání kliknutí
 int led=13;//led na pinu 13
 int led2=12;
 int ledState=LOW;
@@ -42,7 +41,7 @@ byte rowPins[ROWS] = { 2 };
 byte colPins[COLS] = { 3, 4, 5, 6 };
 
 // Create the Keypad
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
+Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 void setup(){
   Serial.begin(9600);
@@ -89,8 +88,12 @@ void loop(){
       if(sensor>1002){
       digitalWrite(8, HIGH);
       delay(200);
-      }else digitalWrite(8, LOW);
-     }else digitalWrite(8, LOW);
+      }
+      else 
+        digitalWrite(8, LOW);
+     }
+  else 
+    digitalWrite(8, LOW);
   }
   
   
@@ -125,11 +128,16 @@ void keypadEvent(KeypadEvent eKey){
                       Serial.println("klikni");
                       Serial.print("Enterlock:");
                       Serial.println(eKey);
-                      }else {klik=0; previousMillis = currentMillis;}
+                      }
+        else {
+          klik=0; 
+          previousMillis = currentMillis;
+        }
                }
         }
-    }else{
-      if(pocet==3){
+    }
+      else{
+        if(pocet==3){
             noveHeslo[pocet]=eKey; 
             uloz(noveHeslo);
             pocet=0;
@@ -147,7 +155,7 @@ void keypadEvent(KeypadEvent eKey){
 
  case HOLD: if(moznost==1 && eKey=='1'){
 
-     currentMillis = millis();
+  currentMillis = millis();
   normal=0;
   moznost=0;
   Serial.println(eKey);
