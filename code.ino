@@ -1,3 +1,4 @@
+
 #include <Password.h>
 #include <Keypad.h>
 #include <EEPROM.h>
@@ -16,6 +17,7 @@ int moznost=0;//proměna užitá jako paramert pro změnu hesla
 int normal=1; //
 int klik=0;//proměná pro počítání kliknutí
 int led=13;//led na pinu 13
+int getImpuls=0; //uchovává jestli byl otřes
 int led2=12;
 int ledState=LOW;
 
@@ -41,7 +43,7 @@ byte rowPins[ROWS] = { 2 };
 byte colPins[COLS] = { 3, 4, 5, 6 };
 
 // Create the Keypad
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 void setup(){
   Serial.begin(9600);
@@ -86,14 +88,14 @@ void loop(){
 
     if(prihlasen==1){
       if(sensor>1002){
-      digitalWrite(8, HIGH);
+      //digitalWrite(8, HIGH);
       delay(200);
+      getImpuls==1;
+      
       }
-      else 
-        digitalWrite(8, LOW);
+      else digitalWrite(8, LOW);
      }
-  else 
-    digitalWrite(8, LOW);
+     blika();
   }
   
   
@@ -120,7 +122,9 @@ void keypadEvent(KeypadEvent eKey){
                 }
               
           }
-      }else{if(eKey=='3'){
+      }
+        else{
+          if(eKey=='3'){
                      currentMillis = millis();
                     if(currentMillis - previousMillis < interval){
                       klik++;
@@ -155,7 +159,7 @@ void keypadEvent(KeypadEvent eKey){
 
  case HOLD: if(moznost==1 && eKey=='1'){
 
-  currentMillis = millis();
+     currentMillis = millis();
   normal=0;
   moznost=0;
   Serial.println(eKey);
@@ -192,10 +196,10 @@ if (password.evaluate()){  //if password is right open
 }
 
 
-void blika(){
-  /*unsigned long Millis = millis();
+void blika(){//pokud byl impuls bliká 10s pak prestane jestli nebude otřes
+  unsigned long Millis = millis();
 
-  
+  if(getImpuls){
    if (Millis - previousMil <= 10000) {
     pre= Millis;
     if (Millis - previousMil >= 500) {
@@ -205,14 +209,18 @@ void blika(){
     // if the LED is off turn it on and vice-versa:
     if (ledState == LOW) {
       ledState = HIGH;
-    } else {
+    } 
+      else {
       ledState = LOW;
     }
 
     // set the LED with the ledState of the variable:
     digitalWrite(8, ledState);
   }
-    }*/
+    }
+    else getImpuls=0;
+  
+  }
   
   }
 
