@@ -1,10 +1,10 @@
+
 #include <Password.h>
 #include <Keypad.h>
 #include <EEPROM.h>
 #define GREEN 10
 #define BLUE 9
 #define RED 11
-#define buzerPin 8
 
 
 Password password = Password( "1111" ); 
@@ -92,7 +92,7 @@ void loop(){
       delay(200);
       getImpuls==1;
       
-      }else digitalWrite(8, LOW);
+      }else digitalWrite(led, LOW);
      }
      blika();
   }
@@ -114,12 +114,7 @@ void keypadEvent(KeypadEvent eKey){
             pocet=0;
           }
           else {
-           switch (eKey){   
-               
-                       
-               default: Serial.print("Enter:");Serial.println(eKey);password.append(eKey); pocet++; 
-                }
-              
+            Serial.print("Enter:");Serial.println(eKey);password.append(eKey); pocet++;  
           }
       }else{if(eKey=='3'){
                      currentMillis = millis();
@@ -138,11 +133,9 @@ void keypadEvent(KeypadEvent eKey){
             uloz(noveHeslo);
             pocet=0;
           }
-          else {
-           switch (eKey){   
-                       
-               default: Serial.print("Enter:");Serial.println(eKey); noveHeslo[pocet]=eKey; pocet++; 
-                }
+          else {   
+               Serial.print("Enter:");Serial.println(eKey); noveHeslo[pocet]=eKey; pocet++; delay(100);
+                
       
       
       }}
@@ -201,14 +194,12 @@ void blika(){//pokud byl impuls bliká 10s pak prestane jestli nebude otřes
     // if the LED is off turn it on and vice-versa:
     if (ledState == LOW) {
       ledState = HIGH;
-      tone(buzerPin, 2200, 600);
     } else {
-      noTone(buzerPin);
       ledState = LOW;
     }
 
     // set the LED with the ledState of the variable:
-    digitalWrite(8, ledState);
+    digitalWrite(led, ledState);
   }
     }else getImpuls=0;
   
