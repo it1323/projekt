@@ -4,7 +4,7 @@
 #define GREEN 10
 #define BLUE 9
 #define RED 11
-//#define DEBUG 1
+//#define DEBUG
 
 Password password = Password( "1111" ); 
 char noveHeslo[5];
